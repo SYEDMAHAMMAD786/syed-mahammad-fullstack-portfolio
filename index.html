@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syed Mahammad — Full Stack .NET Developer</title>
+  <meta name="description" content="Full Stack .NET Developer with 3+ years building enterprise applications. ASP.NET Core, Blazor, React.js, SQL Server, Azure AD." />
+  <meta name="keywords" content="Full Stack .NET Developer, ASP.NET Core, Blazor, C#, SQL Server, Azure, React.js, Bangalore" />
+  <meta property="og:title" content="Syed Mahammad — Full Stack .NET Developer" />
+  <meta property="og:description" content="14+ enterprise apps delivered. Building scalable, secure systems for Acer India." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050810;
+      --bg2: #090d1a;
+      --bg3: #0d1220;
+      --surface: rgba(255,255,255,0.04);
+      --surface2: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.14);
+      --text: #f0f2ff;
+      --text2: #8892b0;
+      --text3: #4a5568;
+      --accent: #4f8ef7;
+      --accent2: #00d4aa;
+      --accent3: #a855f7;
+      --glow: rgba(79,142,247,0.15);
+      --glow2: rgba(0,212,170,0.12);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    [data-theme="light"] {
+      --bg: #f5f6fa;
+      --bg2: #eef0f7;
+      --bg3: #e8eaf3;
+      --surface: rgba(0,0,0,0.04);
+      --surface2: rgba(0,0,0,0.07);
+      --border: rgba(0,0,0,0.08);
+      --border2: rgba(0,0,0,0.14);
+      --text: #0d1220;
+      --text2: #4a5568;
+      --text3: #8892b0;
+      --glow: rgba(79,142,247,0.08);
+      --glow2: rgba(0,212,170,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* SELECTION */
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* =================== NAV =================== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 5%;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(5,8,16,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    [data-theme="light"] nav { background: rgba(245,246,250,0.85); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color var(--transition);
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); background: var(--glow); }
+
+    .nav-resume-btn {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 7px 18px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+      letter-spacing: 0.03em;
+    }
+    .nav-resume-btn:hover { background: var(--accent); color: #fff; }
+
+    .hamburger {
+      display: none;
+      background: none; border: none; color: var(--text);
+      font-size: 1.4rem; cursor: pointer; padding: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 5%; gap: 1.2rem;
+      }
+      .hamburger { display: block; }
+    }
+
+    /* =================== SECTIONS =================== */
+    section { padding: 100px 5%; position: relative; }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      color: var(--text2);
+      max-width: 560px;
+      margin-bottom: 3.5rem;
+      line-height: 1.7;
+    }
+
+    /* =================== HERO =================== */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      pointer-events: none; overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+    .hero-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      animation-delay: 0s;
+    }
+    .hero-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%);
+      bottom: 100px; left: -50px;
+      animation-delay: -4s;
+    }
+    .hero-orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+      top: 40%; right: 30%;
+      animation-delay: -2s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: 
+        linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent2);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      animation: fadeInUp 0.6s 0.1s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-name .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-role {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 600;
+      color: var(--text2);
+      margin-top: 0.8rem;
+      letter-spacing: 0.02em;
+      animation: fadeInUp 0.6s 0.2s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-desc {
+      color: var(--text2);
+      margin-top: 1.2rem;
+      max-width: 480px;
+      line-height: 1.75;
+      font-size: 0.95rem;
+      animation: fadeInUp 0.6s 0.3s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin-top: 2rem;
+      animation: fadeInUp 0.6s 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #3b6fd4);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+      box-shadow: 0 4px 20px rgba(79,142,247,0.3);
+      letter-spacing: 0.02em;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(79,142,247,0.4); }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid var(--border2);
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+      letter-spacing: 0.02em;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-socials {
+      display: flex; gap: 14px; margin-top: 2.5rem;
+      animation: fadeInUp 0.6s 0.5s ease forwards;
+      opacity: 0;
+    }
+    .social-link {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text2);
+      text-decoration: none; font-size: 1.1rem;
+      transition: all var(--transition);
+    }
+    .social-link:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); transform: translateY(-2px); }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+      animation: fadeInRight 0.8s 0.3s ease forwards;
+      opacity: 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+
+    .stat-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .stat-item:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.75rem; color: var(--text2); margin-top: 0.4rem; font-weight: 500; }
+
+    .hero-tech-stack {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    .tech-stack-label { font-size: 0.72rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+    .tech-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-pill {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      color: var(--text2);
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+    .tech-pill:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(24px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+    }
+
+    /* =================== ABOUT =================== */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+
+    .about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .highlight-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.5rem;
+      transition: all var(--transition);
+    }
+    .highlight-card:hover { border-color: var(--accent); transform: translateX(6px); }
+    .highlight-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .highlight-text h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .highlight-text p { font-size: 0.82rem; color: var(--text2); line-height: 1.5; }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-code-card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+    }
+    [data-theme="light"] .about-code-card { background: #1e2030; }
+    .code-header {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .code-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-dot-r { background: #ff5f57; }
+    .code-dot-y { background: #ffbd2e; }
+    .code-dot-g { background: #28ca41; }
+    .code-filename { color: var(--text3); font-size: 0.75rem; margin-left: auto; }
+    .code-body { padding: 1.5rem; line-height: 2; }
+    .code-comment { color: #6a737d; }
+    .code-keyword { color: #c792ea; }
+    .code-string { color: #c3e88d; }
+    .code-class { color: #82aaff; }
+    .code-prop { color: #80cbc4; }
+    .code-num { color: #f78c6c; }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =================== SKILLS =================== */
+    #skills { background: var(--bg); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent3));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .skill-card:hover::before { transform: scaleX(1); }
+    .skill-card:hover { border-color: var(--border2); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+
+    .skill-cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+    .skill-icon { font-size: 1.5rem; }
+    .skill-cat-name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text2);
+      transition: all var(--transition);
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+
+    /* =================== EXPERIENCE =================== */
+    #experience { background: var(--bg2); }
+    .exp-container { max-width: 900px; margin: 0 auto; }
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: relative;
+    }
+    .exp-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;
+    }
+    .exp-company { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; }
+    .exp-client { color: var(--accent2); font-size: 0.85rem; font-weight: 600; margin-top: 2px; }
+    .exp-role { color: var(--text2); font-size: 0.9rem; margin-top: 4px; }
+    .exp-duration {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .exp-highlights { list-style: none; display: grid; gap: 0.8rem; }
+    .exp-highlights li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.9rem; color: var(--text2); line-height: 1.6;
+    }
+    .exp-highlights li::before {
+      content: '▸';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* =================== PROJECTS =================== */
+    #projects { background: var(--bg); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      transition: all var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.25); border-color: var(--border2); }
+
+    .project-header {
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .project-color-bar {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .project-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-top: 0.6rem; }
+    .project-period { font-size: 0.75rem; color: var(--text3); margin-top: 4px; }
+
+    .status-badge {
+      font-size: 0.7rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 100px;
+      letter-spacing: 0.05em; white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .status-live { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+    .status-delivered { background: rgba(79,142,247,0.15); color: var(--accent); border: 1px solid rgba(79,142,247,0.3); }
+    .status-progress { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+
+    .project-body { padding: 1.2rem 1.5rem; flex: 1; }
+    .project-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.65; }
+    .project-achievements { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .project-achievements li {
+      font-size: 0.8rem; color: var(--text2);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .project-achievements li::before { content: '✓'; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+
+    .project-footer { padding: 1rem 1.5rem 1.5rem; border-top: 1px solid var(--border); }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+    .stack-tag {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 9px;
+      font-size: 0.72rem; color: var(--text2); font-weight: 500;
+    }
+    .project-links { display: flex; gap: 10px; }
+    .project-link {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--accent); text-decoration: none;
+      display: flex; align-items: center; gap: 5px;
+      transition: all var(--transition);
+    }
+    .project-link:hover { color: var(--accent2); }
+
+    /* =================== AWARDS =================== */
+    #awards { background: var(--bg2); }
+    .awards-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+    }
+    .award-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .award-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .award-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .award-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .award-org { font-size: 0.82rem; color: var(--accent); font-weight: 600; }
+    .award-year { font-size: 0.78rem; color: var(--text3); margin-top: 0.3rem; }
+
+    /* =================== RESUME =================== */
+    #resume { background: var(--bg); text-align: center; }
+    .resume-inner { max-width: 800px; margin: 0 auto; }
+    .resume-preview {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem;
+      margin: 2rem 0;
+    }
+    .resume-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .resume-desc { color: var(--text2); margin-bottom: 2rem; font-size: 0.95rem; }
+    .resume-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* =================== CONTACT =================== */
+    #contact { background: var(--bg2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; max-width: 1100px; margin: 0 auto; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      transition: all var(--transition);
+      text-decoration: none; color: var(--text);
+    }
+    .contact-item:hover { border-color: var(--accent); transform: translateX(6px); }
+    .contact-item-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .contact-item-label { font-size: 0.72rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+    .contact-item-value { font-size: 0.88rem; font-weight: 500; }
+
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .form-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.8rem; color: var(--text2); font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.04em; }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      transition: border-color var(--transition);
+      outline: none;
+      resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), #3b6fd4);
+      color: #fff;
+      padding: 13px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none; cursor: pointer;
+      font-family: var(--font-body);
+      transition: all var(--transition);
+      letter-spacing: 0.02em;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(79,142,247,0.4); }
+    .btn-submit.sending { opacity: 0.7; cursor: not-allowed; }
+
+    .form-success {
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 10px;
+      padding: 1rem;
+      color: #10b981;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* =================== FOOTER =================== */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 5%;
+      text-align: center;
+    }
+    .footer-inner { max-width: 600px; margin: 0 auto; }
+    .footer-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .footer-name span { color: var(--accent); }
+    .footer-tagline { font-size: 0.82rem; color: var(--text3); }
+
+    /* =================== SCROLL REVEAL =================== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* =================== ACTIVE NAV =================== */
+    .nav-links a.active { color: var(--accent); }
+
+    /* =================== BACK TO TOP =================== */
+    #back-top {
+      position: fixed; bottom: 30px; right: 30px;
+      width: 44px; height: 44px;
+      background: var(--accent);
+      color: #fff; border: none; border-radius: 12px;
+      cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(10px);
+      transition: all var(--transition);
+      z-index: 50;
+      box-shadow: 0 4px 20px rgba(79,142,247,0.4);
+    }
+    #back-top.show { opacity: 1; transform: translateY(0); }
+    #back-top:hover { background: var(--accent3); transform: translateY(-3px); }
+
+    /* =================== MISC =================== */
+    .max-w { max-width: 1200px; margin: 0 auto; }
+    .accent { color: var(--accent); }
+    .accent2 { color: var(--accent2); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">SM<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <a href="Syed_Mahammad_DotNet_3years.pdf" download class="nav-resume-btn">Download CV</a>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Available for Opportunities · Bangalore</div>
+      <h1 class="hero-name">
+        Syed<br><span class="highlight">Mahammad</span>
+      </h1>
+      <div class="hero-role">Full Stack .NET Developer</div>
+      <p class="hero-desc">
+        Building enterprise-grade applications that scale, perform, and secure. 
+        3+ years delivering production systems for Acer India — from ERP to payments to logistics.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="Syed_Mahammad_DotNet_3years.pdf" download class="btn-secondary">⬇ Download Resume</a>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:mahammad.syed@outlook.com" class="social-link" title="Email">✉</a>
+        <a href="https://linkedin.com/in/syedmahammad" target="_blank" class="social-link" title="LinkedIn">in</a>
+        <a href="https://github.com/syedmahammad786" target="_blank" class="social-link" title="GitHub">⌥</a>
+        <a href="https://syedmahammad786.github.io/portfolio" target="_blank" class="social-link" title="Portfolio">◈</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">14+</div>
+          <div class="stat-label">Enterprise Apps Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">3+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">30%</div>
+          <div class="stat-label">API Performance Boost</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">9.23</div>
+          <div class="stat-label">CGPA — JNTU</div>
+        </div>
+      </div>
+      <div class="hero-tech-stack">
+        <div class="tech-stack-label">Core Stack</div>
+        <div class="tech-pills">
+          <span class="tech-pill">ASP.NET Core</span>
+          <span class="tech-pill">C#</span>
+          <span class="tech-pill">Blazor</span>
+          <span class="tech-pill">React.js</span>
+          <span class="tech-pill">SQL Server</span>
+          <span class="tech-pill">Azure AD</span>
+          <span class="tech-pill">.NET 9</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="section-label">Who I Am</div>
+      <h2 class="section-title">Turning Complex Problems Into <span class="accent">Scalable Systems</span></h2>
+      <p style="color:var(--text2);line-height:1.8;font-size:0.95rem;">
+        Full Stack .NET Developer with a passion for building enterprise systems that actually work at scale. 
+        I've spent the last 3+ years as the primary developer on client engagements for Acer India — 
+        owning the full SDLC from architecture to production rollout.
+      </p>
+      <p style="color:var(--text2);line-height:1.8;font-size:0.95rem;margin-top:1rem;">
+        My work spans ERP integrations, logistics platforms, payment gateways, warranty systems, and real-time dashboards — 
+        all delivered under tight timelines with measurable business impact.
+      </p>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <span class="highlight-icon">🏗️</span>
+          <div class="highlight-text">
+            <h4>14+ Enterprise Applications</h4>
+            <p>End-to-end ownership of production systems across ERP, logistics, finance, and warranty domains.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon">⚡</span>
+          <div class="highlight-text">
+            <h4>Performance Engineering</h4>
+            <p>30–40% API improvements, SQL query optimization from 8s to under 0.5s, 45% faster reporting.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon">🔐</span>
+          <div class="highlight-text">
+            <h4>Enterprise Security</h4>
+            <p>OAuth 2.0, JWT, Azure AD SSO, RBAC, and MFA — reducing unauthorized access incidents by 40%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-code-card">
+        <div class="code-header">
+          <div class="code-dot code-dot-r"></div>
+          <div class="code-dot code-dot-y"></div>
+          <div class="code-dot code-dot-g"></div>
+          <span class="code-filename">Developer.cs</span>
+        </div>
+        <div class="code-body">
+          <div><span class="code-keyword">public class</span> <span class="code-class">SyedMahammad</span> : <span class="code-class">IDeveloper</span></div>
+          <div>{</div>
+          <div>&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-class">string</span> <span class="code-prop">Name</span> = <span class="code-string">"Syed Mahammad"</span>;</div>
+          <div>&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-class">string</span> <span class="code-prop">Role</span> = <span class="code-string">"Full Stack .NET Dev"</span>;</div>
+          <div>&nbsp;&nbsp;<span class="code-keyword">public int</span> <span class="code-prop">YearsExp</span> = <span class="code-num">3</span>;</div>
+          <div>&nbsp;&nbsp;<span class="code-keyword">public int</span> <span class="code-prop">AppsDelivered</span> = <span class="code-num">14</span>;</div>
+          <div>&nbsp;</div>
+          <div>&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-class">string[]</span> <span class="code-prop">Stack</span> = {</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"ASP.NET Core"</span>, <span class="code-string">"Blazor"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"React.js"</span>, <span class="code-string">"SQL Server"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"Azure AD"</span>, <span class="code-string">"C#"</span></div>
+          <div>&nbsp;&nbsp;};</div>
+          <div>&nbsp;</div>
+          <div>&nbsp;&nbsp;<span class="code-keyword">public bool</span> <span class="code-prop">OpenToWork</span> = <span class="code-num">true</span>;</div>
+          <div>}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="max-w">
+    <div class="reveal">
+      <div class="section-label">Technical Expertise</div>
+      <h2 class="section-title">My <span class="accent">Skills & Stack</span></h2>
+      <p class="section-subtitle">A battle-tested toolkit built through 3+ years of delivering enterprise-grade systems.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-cat-header"><span class="skill-icon">💻</span><span class="skill-cat-name">Languages</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">C#</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat-header"><span class="skill-icon">⚙️</span><span class="skill-cat-name">Frameworks & Libraries</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">ASP.NET Core</span><span class="skill-tag">ASP.NET MVC</span><span class="skill-tag">Blazor Server</span><span class="skill-tag">Blazor WebAssembly</span><span class="skill-tag">Web API</span><span class="skill-tag">React.js</span><span class="skill-tag">Entity Framework Core</span><span class="skill-tag">.NET 9</span><span class="skill-tag">jQuery</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat-header"><span class="skill-icon">🗄️</span><span class="skill-cat-name">Databases</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">SQL Server</span><span class="skill-tag">MySQL</span><span class="skill-tag">Oracle</span><span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat-header"><span class="skill-icon">🔐</span><span class="skill-cat-name">Security & Auth</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">OAuth 2.0</span><span class="skill-tag">JWT</span><span class="skill-tag">RBAC</span><span class="skill-tag">Azure AD SSO</span><span class="skill-tag">MFA</span><span class="skill-tag">Data Encryption</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat-header"><span class="skill-icon">🛠️</span><span class="skill-cat-name">Tools & Platforms</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">Azure</span><span class="skill-tag">Git</span><span class="skill-tag">IIS</span><span class="skill-tag">SSIS</span><span class="skill-tag">Postman</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">SQL Server Agent</span><span class="skill-tag">Visual Studio</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat-header"><span class="skill-icon">📊</span><span class="skill-cat-name">Advanced SQL</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">Stored Procedures</span><span class="skill-tag">Window Functions</span><span class="skill-tag">CTEs</span><span class="skill-tag">Execution Plans</span><span class="skill-tag">Deadlock Analysis</span><span class="skill-tag">Performance Tuning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-container">
+    <div class="reveal">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Work <span class="accent">Experience</span></h2>
+      <p class="section-subtitle">Building enterprise systems with end-to-end ownership from day one.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">Talent Pace Pvt Ltd</div>
+          <div class="exp-client">Client: Acer India</div>
+          <div class="exp-role">Software Engineer · Bangalore, India</div>
+        </div>
+        <div class="exp-duration">Jun 2023 – Present</div>
+      </div>
+      <ul class="exp-highlights">
+        <li>Designed and delivered 14 enterprise applications spanning ERP, logistics, finance, and warranty — overseeing the full SDLC from architecture to production rollout.</li>
+        <li>Refactored high-volume REST APIs, reducing response times by 30% and increasing throughput by 40%.</li>
+        <li>Implemented OAuth 2.0, JWT, RBAC, and Azure AD SSO with MFA, reducing unauthorized-access incidents by 40%.</li>
+        <li>Integrated Razorpay, MiGS, Cleartax IRN, GST Zen, Clickpost, and E-Way Bill APIs, increasing transaction success by 25%.</li>
+        <li>Orchestrated SSIS data pipelines via SQL Server Agent, boosting data availability and reliability by 35%.</li>
+        <li>Migrated ERP system (MFGPRO → AGBS) with zero data loss, maintaining 100% data integrity across cross-functional teams.</li>
+        <li>Optimized deployments via IIS, scheduled jobs, and console services — cutting manual effort by 50%.</li>
+        <li>Added barcode validation (QuaggaJS), raising dispatch accuracy to 90% and cutting rework by 70%.</li>
+        <li>Resolved production deadlocks, enhancing concurrency handling and raising system uptime by 15% during peak loads.</li>
+        <li>Led Agile Scrum ceremonies, ensuring 100% sprint goal completion each iteration.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="max-w">
+    <div class="reveal">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      <p class="section-subtitle">Real enterprise systems in production, built end-to-end.</p>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#00d4aa,#4f8ef7)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-progress">In Progress</span>
+          </div>
+          <div class="project-title">Plant Management System</div>
+          <div class="project-period">Jan 2026 – Present</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Real-time web-based plant management solution with Blazor for operational data handling and CRUD workflows connected via REST APIs.</p>
+          <ul class="project-achievements">
+            <li>Real-time operational data visibility across plant operations</li>
+            <li>REST API-driven CRUD workflows improving data accessibility</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET Core</span><span class="stack-tag">Blazor</span><span class="stack-tag">C#</span><span class="stack-tag">SQL Server</span><span class="stack-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#4f8ef7,#a855f7)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-delivered">Delivered</span>
+          </div>
+          <div class="project-title">Budget Approval System</div>
+          <div class="project-period">Dec 2025 – Jan 2026</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Secure mobile-first enterprise approval platform with Azure AD SSO, MFA, and VPN-based access for multi-level budget workflows.</p>
+          <ul class="project-achievements">
+            <li>Reduced approval turnaround time by 30%</li>
+            <li>Azure AD SSO + MFA for enterprise-grade auth</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET Core</span><span class="stack-tag">Azure AD SSO</span><span class="stack-tag">C#</span><span class="stack-tag">SQL Server</span><span class="stack-tag">IIS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#a855f7,#ec4899)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-delivered">Delivered</span>
+          </div>
+          <div class="project-title">Acer Sales Force</div>
+          <div class="project-period">Sep 2025 – Nov 2025</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Comprehensive sales force platform with 8+ modules enabling data-driven forecasting, real-time dashboards, and centralized reporting for stakeholders.</p>
+          <ul class="project-achievements">
+            <li>Elevated reporting efficiency by ~60%</li>
+            <li>8+ modules with centralized SQL-optimized dashboards</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET MVC</span><span class="stack-tag">C#</span><span class="stack-tag">SQL Server</span><span class="stack-tag">Chart.js</span><span class="stack-tag">jQuery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#f59e0b,#ef4444)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-progress">In Progress</span>
+          </div>
+          <div class="project-title">Acer Logistics Network</div>
+          <div class="project-period">Dec 2024 – Present</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">End-to-end logistics platform with IRN generation, AWB creation, multi-courier integrations, real-time serial validation, and camera-based barcode scanning.</p>
+          <ul class="project-achievements">
+            <li>Reduced invoice-to-product mapping errors by 90%</li>
+            <li>QuaggaJS camera-based barcode scanning for dispatch</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET Core</span><span class="stack-tag">Cleartax IRN</span><span class="stack-tag">Clickpost</span><span class="stack-tag">QuaggaJS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#10b981,#00d4aa)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-live">🟢 Live</span>
+          </div>
+          <div class="project-title">Shopacer Extended Warranty</div>
+          <div class="project-period">Apr 2024 – Jul 2024</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Scalable warranty ecosystem with offer management, coupon systems, dual payment gateway integration (Razorpay + MiGS), and automated certificate delivery.</p>
+          <ul class="project-achievements">
+            <li>Handled 4,000+ warranty registrations</li>
+            <li>Automated invoicing, IRN processing, and cert delivery</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET MVC</span><span class="stack-tag">Razorpay</span><span class="stack-tag">MiGS</span><span class="stack-tag">SQL Server</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.shopacer.co.in" target="_blank" class="project-link">🔗 View Live Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#ef4444,#f59e0b)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-live">🟢 Live</span>
+          </div>
+          <div class="project-title">Acer Portal Network — WMS</div>
+          <div class="project-period">Dec 2023 – Mar 2024</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Warranty Management System with modules for extension, validation, transfer, and bulk registration with multi-level approval workflows.</p>
+          <ul class="project-achievements">
+            <li>Modernized warranty operations end-to-end</li>
+            <li>Corrected complex date validation and refined SQL procedures</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET Web Forms</span><span class="stack-tag">C#</span><span class="stack-tag">SQL Server</span>
+          </div>
+          <div class="project-links">
+            <a href="https://apn.acer.co.in" target="_blank" class="project-link">🔗 View Live Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-color-bar" style="background:linear-gradient(90deg,#06b6d4,#4f8ef7)"></div>
+          <div class="project-top">
+            <div></div>
+            <span class="status-badge status-delivered">Delivered</span>
+          </div>
+          <div class="project-title">Energy Management System</div>
+          <div class="project-period">Aug 2023 – Nov 2023</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">API-driven system to monitor machine voltage and power consumption across enterprise facilities with real-time insights and performance dashboards.</p>
+          <ul class="project-achievements">
+            <li>Improved data accuracy by 30%</li>
+            <li>Real-time insights across 50+ machines</li>
+          </ul>
+        </div>
+        <div class="project-footer">
+          <div class="project-stack">
+            <span class="stack-tag">ASP.NET Core Web API</span><span class="stack-tag">C#</span><span class="stack-tag">SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="max-w">
+    <div class="reveal">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Awards & <span class="accent">Achievements</span></h2>
+      <p class="section-subtitle">Recognized for excellence in delivery, innovation, and academic performance.</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card reveal">
+        <span class="award-icon">🏆</span>
+        <div class="award-title">Performance Excellence Award</div>
+        <div class="award-org">Acer India</div>
+        <div class="award-year">March 2026</div>
+      </div>
+      <div class="award-card reveal">
+        <span class="award-icon">⭐</span>
+        <div class="award-title">Go That Extra Mile Award</div>
+        <div class="award-org">Talent Pace</div>
+        <div class="award-year">Jun 2024 & Dec 2025</div>
+      </div>
+      <div class="award-card reveal">
+        <span class="award-icon">🎓</span>
+        <div class="award-title">Best Student of the Year</div>
+        <div class="award-org">JNTU</div>
+        <div class="award-year">2023 — CGPA: 9.23</div>
+      </div>
+      <div class="award-card reveal">
+        <span class="award-icon">🥇</span>
+        <div class="award-title">1st Place — National Tech Fest</div>
+        <div class="award-org">Technical Quiz & Pseudo Code</div>
+        <div class="award-year">2022</div>
+      </div>
+      <div class="award-card reveal">
+        <span class="award-icon">📜</span>
+        <div class="award-title">TCS iON Career Edge</div>
+        <div class="award-org">Young Professional Certification</div>
+        <div class="award-year">2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="resume-inner reveal">
+    <div class="section-label">CV</div>
+    <h2 class="section-title">My <span class="accent">Resume</span></h2>
+    <p class="section-subtitle" style="margin:0 auto 3rem;text-align:center;">3+ years of enterprise .NET development experience, packaged cleanly.</p>
+    <div class="resume-preview">
+      <div class="resume-icon">📄</div>
+      <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Syed Mahammad — Full Stack .NET Developer</h3>
+      <p class="resume-desc">
+        ASP.NET Core · Blazor · React.js · C# · SQL Server · Azure AD · SSIS<br>
+        14+ Enterprise Applications · 3+ Years · Bangalore, India
+      </p>
+      <div class="resume-actions">
+        <a href="Syed_Mahammad_DotNet_3years.pdf" download class="btn-primary">⬇ Download Resume (PDF)</a>
+        <a href="Syed_Mahammad_DotNet_3years.pdf" target="_blank" class="btn-secondary">👁 View Resume</a>
+      </div>
+    </div>
+    <p style="color:var(--text3);font-size:0.82rem;">Last updated: April 2026</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+      <p style="color:var(--text2);line-height:1.8;margin-bottom:2rem;font-size:0.95rem;">
+        Open to Full Stack .NET Developer, ASP.NET Core, Backend, and Software Engineer roles at product companies, MNCs, and funded startups in Bangalore.
+      </p>
+      <div class="contact-info">
+        <a href="mailto:mahammad.syed@outlook.com" class="contact-item">
+          <span class="contact-item-icon">✉</span>
+          <div><div class="contact-item-label">Email</div><div class="contact-item-value">mahammad.syed@outlook.com</div></div>
+        </a>
+        <a href="tel:+919989815278" class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <div><div class="contact-item-label">Phone</div><div class="contact-item-value">+91 9989815278</div></div>
+        </a>
+        <a href="https://linkedin.com/in/syedmahammad" target="_blank" class="contact-item">
+          <span class="contact-item-icon">💼</span>
+          <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-value">linkedin.com/in/syedmahammad</div></div>
+        </a>
+        <a href="https://github.com/syedmahammad786" target="_blank" class="contact-item">
+          <span class="contact-item-icon">⌥</span>
+          <div><div class="contact-item-label">GitHub</div><div class="contact-item-value">github.com/syedmahammad786</div></div>
+        </a>
+        <div class="contact-item" style="cursor:default;">
+          <span class="contact-item-icon">📍</span>
+          <div><div class="contact-item-label">Location</div><div class="contact-item-value">Bangalore, Karnataka, India</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="contact-form">
+        <div class="form-title">Send a Message</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="f-name" placeholder="John Doe" />
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" id="f-company" placeholder="Acme Corp" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="f-email" placeholder="john@company.com" />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" id="f-subject" placeholder="Job Opportunity / Collaboration" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="f-message" placeholder="Hi Syed, I'd like to discuss a .NET Developer role at..."></textarea>
+        </div>
+        <button class="btn-submit" id="submitBtn" onclick="handleFormSubmit()">Send Message →</button>
+        <div class="form-success" id="formSuccess">✓ Message sent! I'll get back to you shortly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Syed <span>Mahammad</span></div>
+    <div class="footer-tagline">Full Stack .NET Developer · Bangalore · Building systems that scale</div>
+    <p style="color:var(--text3);font-size:0.78rem;margin-top:1.5rem;">© 2026 Syed Mahammad. Built with care and clean code.</p>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+  // THEME TOGGLE
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  let isDark = true;
+
+  themeToggle.addEventListener('click', () => {
+    isDark = !isDark;
+    root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    themeToggle.textContent = isDark ? '🌙' : '☀️';
+  });
+
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger.textContent = '☰'; });
+  });
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // ACTIVE NAV
+  const sections = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+    navAs.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+
+    // BACK TO TOP
+    document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
+  });
+
+  // FORM SUBMIT
+  function handleFormSubmit() {
+    const btn = document.getElementById('submitBtn');
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const msg = document.getElementById('f-message').value.trim();
+
+    if (!name || !email || !msg) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+    btn.classList.add('sending');
+    btn.disabled = true;
+
+    // Simulate send (replace with actual mailto or API)
+    setTimeout(() => {
+      btn.textContent = '✓ Sent!';
+      document.getElementById('formSuccess').style.display = 'block';
+      ['f-name','f-company','f-email','f-subject','f-message'].forEach(id => document.getElementById(id).value = '');
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.classList.remove('sending');
+        btn.disabled = false;
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 4000);
+    }, 1200);
+  }
+</script>
+</body>
+</html>
