@@ -149,13 +149,23 @@ $(function () {
   runCounters();
 
   /* ── TOUCH FLIP FOR MOBILE ────────────────── */
-  $(document).on('click', '.flip-wrapper', function () {
-    if (window.matchMedia('(hover: none)').matches) {
-      $(this).toggleClass('tapped');
-      // Untap other cards
-      $('.flip-wrapper').not(this).removeClass('tapped');
-    }
-  });
+  // $(document).on('click', '.flip-wrapper', function () {
+  //   if (window.matchMedia('(hover: none)').matches) {
+  //     $(this).toggleClass('tapped');
+  //     // Untap other cards
+  //     $('.flip-wrapper').not(this).removeClass('tapped');
+  //   }
+  // });
+
+  /* TO: */
+$(document).on('click', '.flip-wrapper', function (e) {
+  if (window.matchMedia('(hover: none)').matches) {
+    e.stopPropagation();
+    var isTapped = $(this).hasClass('tapped');
+    $('.flip-wrapper').removeClass('tapped');
+    if (!isTapped) $(this).addClass('tapped');
+  }
+});
 
   /* ── CONTACT FORM ─────────────────────────── */
   $('#contactForm').on('submit', function (e) {

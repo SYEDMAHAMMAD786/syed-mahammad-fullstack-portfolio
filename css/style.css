@@ -407,21 +407,27 @@ ul{list-style:none}
 .sk-tag:hover{border-color:var(--accent);color:var(--accent);background:var(--glow)}
 
 /* Touch devices — tap to flip */
-@media(hover:none){
+/* @media(hover:none){
   .flip-wrapper.tapped .flip-card{transform:rotateY(180deg)}
+} */
+ @media(hover:none){
+  .flip-wrapper:hover .flip-card{transform:none !important}
+  .flip-wrapper.tapped .flip-card{transform:rotateY(180deg) !important}
 }
 
 @media(max-width:768px){
   #skills{padding:70px 5%}
   .skills-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
-  .flip-wrapper{height:190px}
+  .flip-wrapper{height:200px}
   .flip-icon-wrap{width:58px;height:58px;border-radius:14px}
   .flip-icon-wrap img{width:32px;height:32px}
   .flip-cat{font-size:0.85rem}
 }
+
 @media(max-width:480px){
   .skills-grid{grid-template-columns:1fr 1fr}
-  .flip-wrapper{height:180px}
+  .flip-wrapper{height:auto;min-height:180px}
+  .flip-back{justify-content:flex-start;overflow-y:auto}
 }
 
 /* ================================================ EXPERIENCE */
