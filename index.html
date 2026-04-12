@@ -10,11 +10,9 @@
   <meta property="og:title"       content="Syed Mahammad — Full Stack .NET Developer" />
   <meta property="og:description" content="14+ enterprise apps. ASP.NET Core · Blazor · C# · SQL Server · Azure AD." />
   <meta property="og:type"        content="website" />
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -22,7 +20,6 @@
 <!-- ========== NAVBAR ========== -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">SM<span>.</span></a>
-
   <ul class="nav-links" id="navLinks">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -33,7 +30,6 @@
     <li><a href="#resume">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-
   <div class="nav-right">
     <button id="themeToggle" title="Toggle theme">🌙</button>
     <a href="assets/Syed_Mahammad_DotNet_3years.pdf" download class="nav-cv-btn">Download CV</a>
@@ -43,39 +39,33 @@
 
 <!-- ========== HERO ========== -->
 <section id="home">
+  <canvas id="particleCanvas"></canvas>
   <div class="hero-bg">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
     <div class="hero-grid-bg"></div>
   </div>
-
   <div class="hero-inner">
-    <!-- Left -->
     <div class="hero-left">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
         Available for Opportunities &nbsp;·&nbsp; Bangalore
       </div>
-
       <h1 class="hero-name">
         Syed<br><span class="grad">Mahammad</span>
       </h1>
-
       <div class="hero-role">
-        <span id="typedRole">Full Stack .NET Developer</span><span style="color:var(--accent);animation:blink 1s step-end infinite;">|</span>
+        <span id="typedRole"></span><span class="cursor-blink">|</span>
       </div>
-
       <p class="hero-desc">
         Building enterprise-grade applications that scale, perform, and stay secure.
         3+ years delivering production systems for Acer India — ERP, logistics, payments &amp; beyond.
       </p>
-
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="assets/Syed_Mahammad_DotNet_3years.pdf" download class="btn-secondary">⬇ Download Resume</a>
       </div>
-
       <div class="hero-socials">
         <a href="mailto:mahammad.syed@outlook.com" class="social-btn" title="Email">✉</a>
         <a href="https://linkedin.com/in/syedmahammad" target="_blank" class="social-btn" title="LinkedIn">in</a>
@@ -83,24 +73,22 @@
         <a href="https://syedmahammad786.github.io/portfolio" target="_blank" class="social-btn" title="Portfolio">◈</a>
       </div>
     </div>
-
-    <!-- Right: Stats Card -->
     <div class="hero-card">
       <div class="stats-grid">
         <div class="stat-box">
-          <div class="stat-val">14+</div>
-          <div class="stat-lbl">Enterprise Apps Delivered</div>
+          <div class="stat-val" data-count="14">0</div>
+          <div class="stat-lbl">Enterprise Apps</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val">3+</div>
+          <div class="stat-val" data-count="3">0</div>
           <div class="stat-lbl">Years Experience</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val">30%</div>
+          <div class="stat-val" data-suffix="%" data-count="30">0</div>
           <div class="stat-lbl">API Performance Boost</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val">9.23</div>
+          <div class="stat-val" data-count="9" data-decimal=".23">0</div>
           <div class="stat-lbl">CGPA — JNTU</div>
         </div>
       </div>
@@ -117,12 +105,15 @@
       </div>
     </div>
   </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
 </section>
 
 <!-- ========== ABOUT ========== -->
 <section id="about">
   <div class="about-grid container">
-
     <div class="reveal">
       <div class="section-label">Who I Am</div>
       <h2 class="section-title">Turning Complex Problems Into <span class="accent">Scalable Systems</span></h2>
@@ -134,21 +125,21 @@
            dashboards — all delivered under tight timelines with measurable business impact.</p>
       </div>
       <div class="highlight-list">
-        <div class="hl-card">
+        <div class="hl-card reveal" data-delay="100">
           <span class="hl-icon">🏗️</span>
           <div class="hl-text">
             <h4>14+ Enterprise Applications</h4>
             <p>End-to-end ownership across ERP, logistics, finance, and warranty domains for Acer India.</p>
           </div>
         </div>
-        <div class="hl-card">
+        <div class="hl-card reveal" data-delay="200">
           <span class="hl-icon">⚡</span>
           <div class="hl-text">
             <h4>Performance Engineering</h4>
             <p>30–40% API improvements, SQL from 8s to &lt;0.5s, 45% faster reporting, 50% less manual effort.</p>
           </div>
         </div>
-        <div class="hl-card">
+        <div class="hl-card reveal" data-delay="300">
           <span class="hl-icon">🔐</span>
           <div class="hl-text">
             <h4>Enterprise Security</h4>
@@ -157,8 +148,7 @@
         </div>
       </div>
     </div>
-
-    <div class="reveal" data-delay="120">
+    <div class="reveal" data-delay="150">
       <div class="code-card">
         <div class="code-top">
           <span class="cdot cdot-r"></span>
@@ -185,61 +175,134 @@
 }</div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ========== SKILLS ========== -->
+<!-- ========== SKILLS (FLIP CARDS) ========== -->
 <section id="skills">
   <div class="container">
-    <div class="reveal">
+    <div class="reveal" style="text-align:center;">
       <div class="section-label">Technical Expertise</div>
       <h2 class="section-title">My <span class="accent">Skills &amp; Stack</span></h2>
-      <p class="section-subtitle">A battle-tested toolkit built through 3+ years delivering enterprise-grade production systems.</p>
+      <p class="section-subtitle" style="margin:0 auto 2.5rem;">Hover each card to see the full skill set. Built through 3+ years of enterprise delivery.</p>
     </div>
 
     <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="sk-head"><span class="sk-icon">💻</span><span class="sk-name">Languages</span></div>
-        <div class="sk-tags">
-          <span class="sk-tag">C#</span><span class="sk-tag">JavaScript</span><span class="sk-tag">HTML5</span><span class="sk-tag">CSS3</span><span class="sk-tag">SQL</span>
+
+      <!-- Languages -->
+      <div class="flip-wrapper reveal">
+        <div class="flip-card">
+          <div class="flip-front">
+            <div class="flip-icon-wrap" style="background:linear-gradient(135deg,#4f8ef7,#a855f7);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+            </div>
+            <div class="flip-cat">Languages</div>
+            <div class="flip-hint">Hover to explore →</div>
+          </div>
+          <div class="flip-back" style="--card-color:#4f8ef7;">
+            <div class="flip-back-title">💻 Languages</div>
+            <div class="sk-tags">
+              <span class="sk-tag">C#</span><span class="sk-tag">JavaScript</span><span class="sk-tag">HTML5</span><span class="sk-tag">CSS3</span><span class="sk-tag">SQL</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal" data-delay="80">
-        <div class="sk-head"><span class="sk-icon">⚙️</span><span class="sk-name">Frameworks &amp; Libraries</span></div>
-        <div class="sk-tags">
-          <span class="sk-tag">ASP.NET Core</span><span class="sk-tag">ASP.NET MVC</span><span class="sk-tag">Blazor Server</span><span class="sk-tag">Blazor WebAssembly</span><span class="sk-tag">Web API</span><span class="sk-tag">React.js</span><span class="sk-tag">Entity Framework Core</span><span class="sk-tag">.NET 9</span><span class="sk-tag">jQuery</span>
+      <!-- Frameworks -->
+      <div class="flip-wrapper reveal" data-delay="80">
+        <div class="flip-card">
+          <div class="flip-front">
+            <div class="flip-icon-wrap" style="background:linear-gradient(135deg,#00d4aa,#4f8ef7);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
+            </div>
+            <div class="flip-cat">Frameworks</div>
+            <div class="flip-hint">Hover to explore →</div>
+          </div>
+          <div class="flip-back" style="--card-color:#00d4aa;">
+            <div class="flip-back-title">⚙️ Frameworks</div>
+            <div class="sk-tags">
+              <span class="sk-tag">ASP.NET Core</span><span class="sk-tag">ASP.NET MVC</span><span class="sk-tag">Blazor Server</span><span class="sk-tag">Blazor WASM</span><span class="sk-tag">Web API</span><span class="sk-tag">React.js</span><span class="sk-tag">EF Core</span><span class="sk-tag">.NET 9</span><span class="sk-tag">jQuery</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal" data-delay="160">
-        <div class="sk-head"><span class="sk-icon">🗄️</span><span class="sk-name">Databases</span></div>
-        <div class="sk-tags">
-          <span class="sk-tag">SQL Server</span><span class="sk-tag">MySQL</span><span class="sk-tag">Oracle</span><span class="sk-tag">MongoDB</span>
+      <!-- Databases -->
+      <div class="flip-wrapper reveal" data-delay="160">
+        <div class="flip-card">
+          <div class="flip-front">
+            <div class="flip-icon-wrap" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" />
+            </div>
+            <div class="flip-cat">Databases</div>
+            <div class="flip-hint">Hover to explore →</div>
+          </div>
+          <div class="flip-back" style="--card-color:#f59e0b;">
+            <div class="flip-back-title">🗄️ Databases</div>
+            <div class="sk-tags">
+              <span class="sk-tag">SQL Server</span><span class="sk-tag">MySQL</span><span class="sk-tag">Oracle</span><span class="sk-tag">MongoDB</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <div class="sk-head"><span class="sk-icon">🔐</span><span class="sk-name">Security &amp; Auth</span></div>
-        <div class="sk-tags">
-          <span class="sk-tag">OAuth 2.0</span><span class="sk-tag">JWT</span><span class="sk-tag">RBAC</span><span class="sk-tag">Azure AD SSO</span><span class="sk-tag">MFA</span><span class="sk-tag">Data Encryption</span>
+      <!-- Security -->
+      <div class="flip-wrapper reveal" data-delay="80">
+        <div class="flip-card">
+          <div class="flip-front">
+            <div class="flip-icon-wrap" style="background:linear-gradient(135deg,#a855f7,#ec4899);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
+            </div>
+            <div class="flip-cat">Security &amp; Auth</div>
+            <div class="flip-hint">Hover to explore →</div>
+          </div>
+          <div class="flip-back" style="--card-color:#a855f7;">
+            <div class="flip-back-title">🔐 Security &amp; Auth</div>
+            <div class="sk-tags">
+              <span class="sk-tag">OAuth 2.0</span><span class="sk-tag">JWT</span><span class="sk-tag">RBAC</span><span class="sk-tag">Azure AD SSO</span><span class="sk-tag">MFA</span><span class="sk-tag">Encryption</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal" data-delay="80">
-        <div class="sk-head"><span class="sk-icon">🛠️</span><span class="sk-name">Tools &amp; Platforms</span></div>
-        <div class="sk-tags">
-          <span class="sk-tag">Azure</span><span class="sk-tag">Git</span><span class="sk-tag">IIS</span><span class="sk-tag">SSIS</span><span class="sk-tag">Postman</span><span class="sk-tag">Azure DevOps</span><span class="sk-tag">SQL Server Agent</span><span class="sk-tag">Visual Studio</span>
+      <!-- Tools -->
+      <div class="flip-wrapper reveal" data-delay="160">
+        <div class="flip-card">
+          <div class="flip-front">
+            <div class="flip-icon-wrap" style="background:linear-gradient(135deg,#06b6d4,#4f8ef7);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+            </div>
+            <div class="flip-cat">Tools &amp; Platforms</div>
+            <div class="flip-hint">Hover to explore →</div>
+          </div>
+          <div class="flip-back" style="--card-color:#06b6d4;">
+            <div class="flip-back-title">🛠️ Tools &amp; Platforms</div>
+            <div class="sk-tags">
+              <span class="sk-tag">Azure</span><span class="sk-tag">Git</span><span class="sk-tag">IIS</span><span class="sk-tag">SSIS</span><span class="sk-tag">Postman</span><span class="sk-tag">Azure DevOps</span><span class="sk-tag">SQL Agent</span><span class="sk-tag">Visual Studio</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal" data-delay="160">
-        <div class="sk-head"><span class="sk-icon">📊</span><span class="sk-name">Advanced SQL</span></div>
-        <div class="sk-tags">
-          <span class="sk-tag">Stored Procedures</span><span class="sk-tag">Window Functions</span><span class="sk-tag">CTEs</span><span class="sk-tag">Execution Plans</span><span class="sk-tag">Deadlock Analysis</span><span class="sk-tag">Performance Tuning</span>
+      <!-- Advanced SQL -->
+      <div class="flip-wrapper reveal" data-delay="240">
+        <div class="flip-card">
+          <div class="flip-front">
+            <div class="flip-icon-wrap" style="background:linear-gradient(135deg,#10b981,#06b6d4);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
+            </div>
+            <div class="flip-cat">Advanced SQL</div>
+            <div class="flip-hint">Hover to explore →</div>
+          </div>
+          <div class="flip-back" style="--card-color:#10b981;">
+            <div class="flip-back-title">📊 Advanced SQL</div>
+            <div class="sk-tags">
+              <span class="sk-tag">Stored Procedures</span><span class="sk-tag">Window Functions</span><span class="sk-tag">CTEs</span><span class="sk-tag">Execution Plans</span><span class="sk-tag">Deadlock Analysis</span><span class="sk-tag">Perf Tuning</span>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -252,7 +315,6 @@
       <h2 class="section-title">Work <span class="accent">Experience</span></h2>
       <p class="section-subtitle">Building enterprise systems with full end-to-end ownership from day one.</p>
     </div>
-
     <div class="exp-card reveal">
       <div class="exp-head">
         <div>
@@ -268,7 +330,7 @@
         <li>Implemented OAuth 2.0, JWT, RBAC, and Azure AD SSO with MFA, reducing unauthorized-access incidents by 40%.</li>
         <li>Integrated Razorpay, MiGS, Cleartax IRN, GST Zen, Clickpost, and E-Way Bill APIs, increasing transaction success by 25%.</li>
         <li>Orchestrated SSIS data pipelines via SQL Server Agent, boosting data availability and reliability by 35%.</li>
-        <li>Migrated ERP system (MFGPRO → AGBS) with zero data loss, maintaining 100% data integrity across cross-functional teams.</li>
+        <li>Migrated ERP system (MFGPRO → AGBS) with zero data loss, maintaining 100% data integrity.</li>
         <li>Optimized deployments via IIS, scheduled jobs, and console services — cutting manual effort by 50%.</li>
         <li>Added barcode validation (QuaggaJS), raising dispatch accuracy to 90% and cutting rework by 70%.</li>
         <li>Resolved production deadlocks, enhancing concurrency handling and raising system uptime by 15% during peak loads.</li>
@@ -286,17 +348,12 @@
       <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
       <p class="section-subtitle">Real enterprise systems in production, built end-to-end with full ownership.</p>
     </div>
-
     <div class="projects-grid">
 
-      <!-- Plant Management System -->
       <div class="proj-card reveal">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#00d4aa,#4f8ef7);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-progress">In Progress</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-progress">In Progress</span></div>
           <div class="proj-title">Plant Management System</div>
           <div class="proj-period">Jan 2026 – Present</div>
         </div>
@@ -314,14 +371,10 @@
         </div>
       </div>
 
-      <!-- Budget Approval System -->
       <div class="proj-card reveal" data-delay="80">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#4f8ef7,#a855f7);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-delivered">Delivered</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-live">🟢 Live</span></div>
           <div class="proj-title">Budget Approval System</div>
           <div class="proj-period">Dec 2025 – Jan 2026</div>
         </div>
@@ -339,14 +392,10 @@
         </div>
       </div>
 
-      <!-- Acer Sales Force -->
       <div class="proj-card reveal" data-delay="160">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#a855f7,#ec4899);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-delivered">Delivered</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-live">🟢 Live</span></div>
           <div class="proj-title">Acer Sales Force</div>
           <div class="proj-period">Sep 2025 – Nov 2025</div>
         </div>
@@ -364,14 +413,10 @@
         </div>
       </div>
 
-      <!-- Acer Logistics Network -->
       <div class="proj-card reveal">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#f59e0b,#ef4444);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-progress">In Progress</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-live">🟢 Live</span></div>
           <div class="proj-title">Acer Logistics Network</div>
           <div class="proj-period">Dec 2024 – Present</div>
         </div>
@@ -389,14 +434,10 @@
         </div>
       </div>
 
-      <!-- Shopacer Extended Warranty -->
       <div class="proj-card reveal" data-delay="80">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#10b981,#00d4aa);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-live">🟢 Live</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-live">🟢 Live</span></div>
           <div class="proj-title">Shopacer Extended Warranty</div>
           <div class="proj-period">Apr 2024 – Jul 2024</div>
         </div>
@@ -415,14 +456,10 @@
         </div>
       </div>
 
-      <!-- Acer Portal Network -->
       <div class="proj-card reveal" data-delay="160">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#ef4444,#f59e0b);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-live">🟢 Live</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-live">🟢 Live</span></div>
           <div class="proj-title">Acer Portal Network — WMS</div>
           <div class="proj-period">Dec 2023 – Mar 2024</div>
         </div>
@@ -441,14 +478,10 @@
         </div>
       </div>
 
-      <!-- Energy Management System -->
       <div class="proj-card reveal">
         <div class="proj-top-bar" style="background:linear-gradient(90deg,#06b6d4,#4f8ef7);"></div>
         <div class="proj-header">
-          <div class="proj-meta">
-            <div></div>
-            <span class="badge badge-delivered">Delivered</span>
-          </div>
+          <div class="proj-meta"><div></div><span class="badge badge-delivered">Delivered</span></div>
           <div class="proj-title">Energy Management System</div>
           <div class="proj-period">Aug 2023 – Nov 2023</div>
         </div>
@@ -478,7 +511,6 @@
       <h2 class="section-title">Awards &amp; <span class="accent">Achievements</span></h2>
       <p class="section-subtitle">Recognised for excellence in delivery, performance, and academic achievement.</p>
     </div>
-
     <div class="awards-grid">
       <div class="award-card reveal">
         <span class="award-icon">🏆</span>
@@ -541,15 +573,10 @@
 <!-- ========== CONTACT ========== -->
 <section id="contact">
   <div class="contact-grid container">
-
-    <!-- Left: Info -->
     <div class="reveal">
       <div class="section-label">Get In Touch</div>
       <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
-      <p class="contact-intro">
-        Open to Full Stack .NET Developer, ASP.NET Core, Backend, and Software Engineer roles at
-        product companies, MNCs, and funded startups in Bangalore.
-      </p>
+      <p class="contact-intro">Open to Full Stack .NET Developer, ASP.NET Core, Backend, and Software Engineer roles at product companies, MNCs, and funded startups in Bangalore.</p>
       <div class="contact-list">
         <a href="mailto:mahammad.syed@outlook.com" class="contact-item">
           <span class="ci-icon">✉</span>
@@ -573,8 +600,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Right: Form -->
     <div class="reveal" data-delay="120">
       <div class="form-card">
         <div class="form-title">Send a Message</div>
@@ -606,7 +631,6 @@
         </form>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -617,14 +641,9 @@
   <div class="footer-copy">© 2026 Syed Mahammad. Crafted with clean code &amp; attention to detail.</div>
 </footer>
 
-<!-- BACK TO TOP -->
 <button id="backTop" title="Back to top">↑</button>
 
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
-<!-- Main Script -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
