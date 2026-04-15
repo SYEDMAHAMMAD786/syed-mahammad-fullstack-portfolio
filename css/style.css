@@ -842,3 +842,12 @@ footer{
 [data-theme="light"] .skill-close:hover {
   color: #000;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
