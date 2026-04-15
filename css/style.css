@@ -652,3 +652,55 @@ footer{
   .section-subtitle{font-size:0.87rem}
   .btn-primary,.btn-secondary{padding:11px 18px;font-size:0.85rem}
 }
+
+
+@media (max-width: 768px){
+
+  /* 🔥 FIX ROOT ISSUE */
+  #about {
+    padding: 70px 16px !important;
+  }
+
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Fix grid */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+
+  /* Safety */
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+@media (min-width: 769px) {
+  .hl-card:hover {
+    transform: translateX(8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hl-card {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 768px){
+
+  /* 🔥 FIX GRID OVERFLOW (MAIN ISSUE) */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;   /* ⬅️ CRITICAL FIX */
+  }
+
+  /* Prevent any internal overflow */
+  .about-grid > * {
+    min-width: 0;
+  }
+
+}
