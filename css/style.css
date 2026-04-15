@@ -725,26 +725,26 @@ footer{
 }
 
 /* 🔥 GLASS CARD */
+/* ================= GLASS FIX FOR LIGHT + DARK ================= */
+
 .skill-modal-content {
+
   width: 100%;
   max-width: 380px;
   padding: 1.6rem;
-
   border-radius: 20px;
+  position: relative;
 
-  /* Glass effect */
-  background: rgba(255, 255, 255, 0.06);
+  /* 🌙 Dark mode */
+  background: rgba(15, 18, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  /* Glow */
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.5),
     0 0 30px rgba(79, 142, 247, 0.15);
-
-  position: relative;
 
   animation: glassPop 0.25s ease;
 }
@@ -756,10 +756,13 @@ footer{
   right: 14px;
   font-size: 1.4rem;
   cursor: pointer;
-  color: #cbd5f5;
-  transition: 0.2s;
-}
 
+  /* Default (dark mode) */
+  color: #cbd5f5;
+
+  transition: all 0.2s ease;
+  z-index: 10; /* 🔥 ensures always on top */
+}
 .skill-close:hover {
   color: #fff;
   transform: scale(1.2);
@@ -796,4 +799,46 @@ footer{
 
 .skill-modal.active {
   opacity: 1;
+}
+
+/* ☀️ LIGHT MODE FIX */
+[data-theme="light"] .skill-modal-content {
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.15);
+
+}
+
+/* Tags inside modal */
+[data-theme="light"] #skillModalBody .sk-tag {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] #skillModalBody h4 {
+  color: #0d1220;
+}
+
+[data-theme="light"] .skill-modal-content {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.9),
+    rgba(240,244,255,0.85)
+  );
+}
+
+[data-theme="light"] .skill-close {
+  color: #111827; /* dark color so visible */
+}
+
+.skill-close:hover {
+  transform: scale(1.2);
+}
+
+[data-theme="light"] .skill-close:hover {
+  color: #000;
 }
