@@ -329,13 +329,14 @@ ul{list-style:none}
 .cdot{width:11px;height:11px;border-radius:50%}
 .cdot-r{background:#ff5f57}.cdot-y{background:#ffbd2e}.cdot-g{background:#28ca41}
 .cfile{color:var(--text3);font-size:0.73rem;margin-left:auto}
-.code-body{padding:1.3rem 1.5rem;line-height:1.85;color:#abb2bf;overflow-x:auto;white-space:pre;font-size:0.82rem}
+
+
 .ck{color:#c792ea}.cc{color:#6a737d}.cs{color:#c3e88d}.ccl{color:#82aaff}.cp{color:#80cbc4}.cn{color:#f78c6c}
 
 @media(max-width:768px){
   #about{padding:70px 5%}
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .code-body{font-size:0.72rem;padding:1rem 1.1rem;line-height:1.75}
+  .code-body{font-size:0.60rem;padding:1rem 1.1rem;line-height:1.75}
 }
 
 /* ================================================ SKILLS — FLIP CARDS */
@@ -692,7 +693,7 @@ footer{
 
 @media (max-width: 768px){
 
-  /* 🔥 FIX GRID OVERFLOW (MAIN ISSUE) */
+  /* FIX GRID OVERFLOW (MAIN ISSUE) */
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;   /* ⬅️ CRITICAL FIX */
@@ -724,7 +725,7 @@ footer{
   padding: 16px;
 }
 
-/* 🔥 GLASS CARD */
+/* GLASS CARD */
 /* ================= GLASS FIX FOR LIGHT + DARK ================= */
 
 .skill-modal-content {
@@ -735,7 +736,7 @@ footer{
   border-radius: 20px;
   position: relative;
 
-  /* 🌙 Dark mode */
+  /*  Dark mode */
   background: rgba(15, 18, 32, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -768,7 +769,7 @@ footer{
   transform: scale(1.2);
 }
 
-/* ✨ Animation */
+/*  Animation */
 @keyframes glassPop {
   from {
     transform: scale(0.85) translateY(10px);
@@ -845,9 +846,129 @@ footer{
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.2rem !important;
+    font-size: 2.0rem !important;
     line-height: 1.2;
     word-break: normal !important;
     overflow-wrap: normal !important;
   }
+}
+
+/*  FORCE NO HORIZONTAL SCROLL (FINAL FIX) */
+/* ================= CODE CARD FINAL FIX ================= */
+
+/* Remove any overflow */
+.code-card {
+  overflow: hidden !important;
+  position: relative;
+}
+
+
+/*  REMOVE FAKE SCROLL / PROGRESS BAR */
+.code-card::after,
+.code-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* If any progress bar element exists */
+.code-card .progress,
+.code-card .progress-bar,
+.code-card .scroll-indicator {
+  display: none !important;
+}
+
+.code-body pre {
+  margin: 0;
+  white-space: inherit;
+}
+
+/* ===== FINAL CLEAN CODE FIX ===== */
+
+.code-body {
+  white-space: pre;
+  overflow-x: auto;
+
+  font-family: 'Consolas', 'Courier New', monospace;
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+.code-body pre {
+  margin: 0;
+  white-space: inherit;
+}
+
+/* ===== REMOVE BOTTOM BLUE BAR COMPLETELY ===== */
+
+/* Remove pseudo elements */
+.code-card::before,
+.code-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Remove any progress bar inside */
+.code-card div[class*="progress"],
+.code-card div[class*="bar"],
+.code-card div[class*="scroll"] {
+  display: none !important;
+}
+
+/* Safety: remove overflow artifacts */
+.code-card {
+  overflow: hidden !important;
+}
+
+/* ===== FINAL CODE CARD UNIVERSAL FIX ===== */
+
+/* Remove fake bottom bar completely */
+.code-card::before,
+.code-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Remove any internal progress/scroll bars */
+.code-card div[class*="progress"],
+.code-card div[class*="bar"],
+.code-card div[class*="scroll"] {
+  display: none !important;
+}
+
+/* Ensure clean container */
+.code-card {
+  overflow: hidden !important;
+  border-radius: 16px;
+}
+
+/* Fix code body (same in light & dark) */
+.code-body {
+  white-space: pre;
+  font-family: 'Consolas', 'Courier New', monospace;
+  line-height: 1.6;
+  tab-size: 2;
+  overflow-x: auto;
+}
+
+/* Light mode fix (important) */
+html[data-theme="light"] .code-card {
+  background: #1e1e2f !important;   /* match dark card */
+  color: #abb2bf;
+}
+
+/* Optional: smooth look */
+.code-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== Developer.cs THEME BASED COLOR ===== */
+
+/* Dark Mode */
+html[data-theme="dark"] .code-top {
+  color: #9aa4b2;   /* light grey */
+}
+
+/* Light Mode */
+html[data-theme="light"] .code-top {
+  color: #edf0f5;   /* dark grey */
 }
