@@ -704,3 +704,96 @@ footer{
   }
 
 }
+
+
+
+/* ================= GLASSMORPHISM MODAL ================= */
+
+.skill-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 9999;
+  padding: 16px;
+}
+
+/* 🔥 GLASS CARD */
+.skill-modal-content {
+  width: 100%;
+  max-width: 380px;
+  padding: 1.6rem;
+
+  border-radius: 20px;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  /* Glow */
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(79, 142, 247, 0.15);
+
+  position: relative;
+
+  animation: glassPop 0.25s ease;
+}
+
+/* Close button */
+.skill-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #cbd5f5;
+  transition: 0.2s;
+}
+
+.skill-close:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* ✨ Animation */
+@keyframes glassPop {
+  from {
+    transform: scale(0.85) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+#skillModalBody h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#skillModalBody .sk-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.skill-modal {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.skill-modal.active {
+  opacity: 1;
+}

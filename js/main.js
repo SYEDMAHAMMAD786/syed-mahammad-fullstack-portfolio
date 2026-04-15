@@ -257,3 +257,71 @@ $(document).on('click', '.flip-wrapper', function (e) {
   })();
 
 });
+
+
+
+/* ================= SKILL MODAL (MOBILE ONLY) ================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const modal = document.getElementById("skillModal");
+  const modalBody = document.getElementById("skillModalBody");
+  const closeBtn = document.querySelector(".skill-close");
+
+  // ✅ Prevent error if modal not found
+  if (!modal || !modalBody) return;
+
+  document.querySelectorAll(".flip-wrapper").forEach(card => {
+    card.addEventListener("click", function () {
+
+      // ✅ Only for mobile
+      if (window.innerWidth > 768) return;
+
+      const back = this.querySelector(".flip-back");
+
+      if (!back) return;
+
+      modalBody.innerHTML = back.innerHTML;
+
+      //UPDATED (smooth open)
+      modal.style.display = "flex";
+      setTimeout(() => modal.classList.add("active"), 10);
+
+      document.documentElement.style.overflow = "hidden";
+    });
+  });
+
+  // Close button
+if (closeBtn) {
+  closeBtn.onclick = () => {
+
+        //UPDATED (smooth close)
+    modal.classList.remove("active");
+
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 200);
+
+    document.documentElement.style.overflow = "";
+
+    // RESET ALL FLIPPED CARDS
+    document.querySelectorAll(".flip-wrapper").forEach(c => {
+      c.classList.remove("tapped");
+    });
+  };
+}
+
+// Click outside
+window.addEventListener("click", function (e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+
+    // RESET ALL FLIPPED CARDS
+    document.querySelectorAll(".flip-wrapper").forEach(c => {
+      c.classList.remove("tapped");
+    });
+  }
+});
+
+});
